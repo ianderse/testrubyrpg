@@ -7,8 +7,8 @@ class Creature
 	end
 
 	def dead?
-		if @hp < 0
-			@dead
+		if @hp <= 0
+			@dead = true
 		elsif @hp > 0
 			@dead = false
 		end	

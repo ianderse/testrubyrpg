@@ -10,12 +10,16 @@ class Player < Creature
 		@str = 20
 		@dex = 20
 		@hp = 50
+
+		select_race
+		select_job
+
 		welcome
 
 	end
 
 	def welcome
-		puts "Welcome " + @name + " the " + select_race + " " + select_job
+		puts "Welcome " + @name + " the " + @race.to_s + " " + @job.to_s
 	end
 
 	def get_stats
@@ -26,22 +30,26 @@ class Player < Creature
 		puts "Intelligence: " + @int.to_s
 		puts "Strength: " + @str.to_s
 		puts "Dexterity: " + @dex.to_s
+		main_menu(pc)
 	end
 
 	private 
 
 	def select_race
 		if @race == 1
-			"Human"
+			@race = "Human"
 		elsif @race == 2
 			@int = @int + 5
 			@str = @str - 5
-			"Elf"
+			@race = "Elf"
 		elsif @race == 3
 			@dex = @dex + 5
 			@str = @str - 3
 			@int = @int - 2
-			"Halfling"
+			@race = "Halfling"
+		else
+			puts "Not a valid race"
+			start
 		end
 	end
 
@@ -49,16 +57,19 @@ class Player < Creature
 		if @job == 1
 			@str = @str + 5
 			@int = @int - 5
-			"Warrior"
+			@job = "Warrior"
 		elsif @job == 2
 			@int = @int + 5
 			@str = @str - 5
-			"Mage"
+			@job = "Mage"
 		elsif @job == 3
 			@str = @str - 3
 			@int = @int - 2
 			@dex = @dex + 5
-			"Thief"
+			@job = "Thief"
+		else
+			puts "Not a valid job"
+			start
 		end
 	end
 end

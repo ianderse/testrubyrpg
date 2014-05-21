@@ -10,6 +10,9 @@ def main_menu(pc)
 		puts "testing."
 	elsif choice == 3
 		fight(pc, "Goblin")
+	else
+		puts "Not a valid choice"
+		main_menu(pc)
 	end
 
 end
