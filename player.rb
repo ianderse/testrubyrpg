@@ -5,18 +5,20 @@ class Player < Creature
 		@name = name
 		@race = race
 		@job = job
-		@mp = 50
 		@int = 20
 		@str = 20
 		@dex = 20
-		@hp = 50
 		@level = 1
-
-		@attack = str * 1.25
-		@defense = str * 0.25
 
 		select_race
 		select_job
+
+		@attack = str * 1.25
+		@defense = str * 0.25
+		@magdam = int * 1.5
+		@dexdam = dex * 1.5
+		@hp = @str * 5
+		@mp = @int * 5
 
 		welcome
 
@@ -27,8 +29,6 @@ class Player < Creature
 	end
 
 	def get_stats
-		@hp = @str * 5
-		@mp = @int * 5
 		puts "HP: " + @hp.to_s
 		puts "MP: " + @mp.to_s
 		puts "Intelligence: " + @int.to_s

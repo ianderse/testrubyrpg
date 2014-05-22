@@ -2,6 +2,7 @@ require './fight'
 
 
 def main_menu
+	puts $pc.name + " the level " + $pc.level.to_s + " " + $pc.race.to_s + " " + $pc.job.to_s
 	puts "(1)Character Sheet, (2)Inventory, (3)Fight"
 	choice = gets.chomp.to_i
 
