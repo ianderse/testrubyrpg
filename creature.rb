@@ -1,8 +1,9 @@
 class Creature
-	attr_accessor :name, :race, :job, :hp, :mp, :int, :str, :dex, :level, :exp
+	attr_accessor :name, :race, :job, :hp, :mp, :int, :str, :dex, :level, :exp, :attack, :defense
 
 	def die!
 		@dead = true
+		@hp = 0
 		puts "#{name} dies!"
 	end
 
@@ -12,12 +13,6 @@ class Creature
 		elsif @hp > 0
 			@dead = false
 		end	
-	end
-
-	def level_up_check
-		if @exp >= @exp_needed
-			@level = @level + 1
-		end
 	end
 
 end

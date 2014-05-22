@@ -1,6 +1,9 @@
 class Monster < Creature
-	def initialize(name)
+	def initialize(name, hp, attack, defense, level)
 		@name = name
-		@level = 1
+		@level = level
+		@hp = hp
+		@attack = attack
+		@defense = defense
 	end
 end

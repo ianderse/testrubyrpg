@@ -10,6 +10,10 @@ class Player < Creature
 		@str = 20
 		@dex = 20
 		@hp = 50
+		@level = 1
+
+		@attack = str * 1.25
+		@defense = str * 0.25
 
 		select_race
 		select_job
@@ -31,6 +35,12 @@ class Player < Creature
 		puts "Strength: " + @str.to_s
 		puts "Dexterity: " + @dex.to_s
 		main_menu
+	end
+
+	def level_up_check
+		if @exp >= @exp_needed
+			@level = @level + 1
+		end
 	end
 
 	private 

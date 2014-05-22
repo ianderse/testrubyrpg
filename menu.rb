@@ -10,7 +10,7 @@ def main_menu
 	elsif choice == 2
 		puts "testing."
 	elsif choice == 3
-		fight($pc, "Goblin")
+		fight
 	else
 		puts "Not a valid choice"
 		main_menu
