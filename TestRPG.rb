@@ -10,8 +10,10 @@ def start
 
 	puts "Choose your class: (1) Warrior, (2) Mage, (3) Thief"
 	job = gets.chomp.to_i
-	pc = Player.new(name, race, job)
-	main_menu(pc)
+
+	$pc = Player.new(name, race, job)
+	
+	main_menu
 end
 
 start

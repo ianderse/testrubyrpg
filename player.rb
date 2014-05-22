@@ -30,7 +30,7 @@ class Player < Creature
 		puts "Intelligence: " + @int.to_s
 		puts "Strength: " + @str.to_s
 		puts "Dexterity: " + @dex.to_s
-		main_menu(pc)
+		main_menu
 	end
 
 	private 
