@@ -21,6 +21,7 @@ class Player < Creature
 		@mp = @int * 5
 		@exp = 0
 		@exp_needed = 50
+		@gold = 100
 
 		welcome
 
@@ -37,6 +38,7 @@ class Player < Creature
 		puts "Strength: " + @str.to_s
 		puts "Dexterity: " + @dex.to_s
 		puts "EXP: " + @exp.to_s
+		puts "Gold: " + @gold.to_s
 		main_menu
 	end
 
