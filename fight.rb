@@ -2,24 +2,31 @@ require './monster'
 
 def end_of_fight
 	#level up check, exp gain, loot gain, return to menu
-	main_menu
+	if $pc.dead?
+		puts "Game Over"
+		start
+	elsif @mob.dead?
+		$pc.exp = $pc.exp + @mob.exp
+		$pc.level_up_check
+		main_menu
+	end
 end
 
 def fight
 	dice = 1 + rand(6)
 
 	if dice == 1
-		@mob = Monster.new("Goblin", 25, 8, 5, 1)
+		@mob = Monster.new("Goblin", 25, 8, 5, 1, 5)
 	elsif dice == 2
-		@mob = Monster.new("Orc", 50, 10, 5, 1)
+		@mob = Monster.new("Orc", 50, 10, 5, 1, 10)
 	elsif dice == 3
-		@mob = Monster.new("Dark Elf", 75, 12, 7, 2)
+		@mob = Monster.new("Dark Elf", 75, 12, 7, 2, 15)
 	elsif dice == 4
-		@mob = Monster.new("Ogre", 100, 18, 7, 3)
+		@mob = Monster.new("Ogre", 100, 18, 7, 3, 20)
 	elsif dice == 5
-		@mob = Monster.new("Dragon", 150, 22, 10, 5)
+		@mob = Monster.new("Dragon", 150, 22, 10, 5, 25)
 	elsif dice == 6
-		@mob = Monster.new("Wizard", 100, 27, 5, 5)
+		@mob = Monster.new("Wizard", 100, 27, 5, 5, 30)
 	end
 
 	puts $pc.name + " is fighting a level " + @mob.level.to_s + " " + @mob.name + "!"

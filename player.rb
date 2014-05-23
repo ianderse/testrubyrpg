@@ -19,6 +19,8 @@ class Player < Creature
 		@dexdam = dex * 1.5
 		@hp = @str * 5
 		@mp = @int * 5
+		@exp = 0
+		@exp_needed = 50
 
 		welcome
 
@@ -34,12 +36,15 @@ class Player < Creature
 		puts "Intelligence: " + @int.to_s
 		puts "Strength: " + @str.to_s
 		puts "Dexterity: " + @dex.to_s
+		puts "EXP: " + @exp.to_s
 		main_menu
 	end
 
 	def level_up_check
 		if @exp >= @exp_needed
 			@level = @level + 1
+			@exp = 0
+			@exp_needed = (50 * level)
 		end
 	end
 
