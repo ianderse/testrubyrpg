@@ -1,0 +1,3 @@
+def inventory
+	
+end
