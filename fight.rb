@@ -3,9 +3,11 @@ require './monster'
 def end_of_fight
 	#level up check, exp gain, loot gain, return to menu
 	if $pc.dead?
+		puts $pc.name + " is dead!!"
 		puts "Game Over"
 		start
 	elsif @mob.dead?
+		puts @mob.name + " is dead!!"
 		$pc.exp = $pc.exp + @mob.exp
 		$pc.level_up_check
 		$pc.gold = $pc.gold + @mob.gold
@@ -25,9 +27,9 @@ def fight
 	elsif dice == 4
 		@mob = Monster.new("Ogre", 100, 18, 7, 3, 20, 40)
 	elsif dice == 5
-		@mob = Monster.new("Dragon", 150, 22, 10, 5, 25, 50)
+		@mob = Monster.new("Dragon", 150, 22, 10, 5, 40, 50)
 	elsif dice == 6
-		@mob = Monster.new("Wizard", 100, 27, 5, 5, 30, 75)
+		@mob = Monster.new("Wizard", 100, 27, 5, 5, 40, 75)
 	end
 
 	puts $pc.name + " is fighting a level " + @mob.level.to_s + " " + @mob.name + "!"
@@ -48,8 +50,6 @@ def fight
 		if choice == 1
 			@mob.deal_damage_to($pc)
 			$pc.deal_damage_to(@mob)
-			puts @mob.name + " has " + @mob.hp.to_s + " HP remaining"
-			puts $pc.name + " has " + $pc.hp.to_s + " HP remaining"
 		elsif choice == 2
 			#same as above, shouldn't have to check this here.
 			if $pc.job == "Mage"
@@ -63,6 +63,7 @@ def fight
 				puts @mob.name + " has " + @mob.hp.to_s + " HP remaining"
 				puts $pc.name + " has " + $pc.hp.to_s + " HP remaining"
 			else
+				#shield bash
 			end
 		else
 			run = 1 + rand(6)

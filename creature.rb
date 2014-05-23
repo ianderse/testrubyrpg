@@ -8,7 +8,6 @@ class Creature
 
 	def dead?
 		if @hp <= 0
-			puts "#{name} dies!"
 			true
 		elsif @hp > 0
 			false
@@ -16,16 +15,20 @@ class Creature
 	end
 
 	def deal_damage_to(target)
-		rand_num = 1 + rand(6)
-		if self.hp < 0
-			self.hp = 0
-		end
 
+		rand_num = 1 + rand(6)
 		if rand_num.between?(1,5)
 			target.hp = target.hp - (attack - target.defense)
 		else
 			puts self.name + " misses!"
 		end
+
+		if target.hp < 0
+			target.hp = 0
+		end
+
+		puts target.name + " has " + target.hp.to_s + " HP remaining"
+		target.dead?
 	end
 
 end
