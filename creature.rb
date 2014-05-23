@@ -16,4 +16,8 @@ class Creature
 		end	
 	end
 
+	def deal_damage_to(target)
+			target.hp = target.hp - (attack - target.defense)
+	end
+
 end

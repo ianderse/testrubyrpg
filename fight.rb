@@ -38,9 +38,8 @@ def fight
 		choice = gets.chomp.to_i
 
 		if choice == 1
-			#put all of this in a check_damage method in creature class
-			@mob.hp = @mob.hp - ($pc.attack - @mob.defense)
-			$pc.hp = $pc.hp - (@mob.attack - $pc.defense)
+			@mob.deal_damage_to($pc)
+			$pc.deal_damage_to(@mob)
 			puts @mob.name + " has " + @mob.hp.to_s + " HP remaining"
 			puts $pc.name + " has " + $pc.hp.to_s + " HP remaining"
 		elsif choice == 2
@@ -58,13 +57,13 @@ def fight
 			else
 			end
 		else
-			run = 1 + rand(2)
-			if run == 1
+			run = 1 + rand(6)
+			if run == (1 || 2 || 3 || 4)
 				puts "Ran away!"
 				main_menu
 			else 
 				puts "Run failed! " + @mob.name + " gets a free attack!"
-				$pc.hp = $pc.hp - (@mob.attack - $pc.defense)
+				@mob.deal_damage_to($pc)
 				puts @mob.name + " has " + @mob.hp.to_s + " HP remaining"
 				puts $pc.name + " has " + $pc.hp.to_s + " HP remaining"				
 			end

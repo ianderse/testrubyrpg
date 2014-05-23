@@ -1,4 +1,5 @@
 require './fight'
+require './inventory'
 
 
 def main_menu
@@ -9,7 +10,7 @@ def main_menu
 	if choice == 1
 		$pc.get_stats
 	elsif choice == 2
-		puts "testing."
+		inventory
 	elsif choice == 3
 		fight
 	else
