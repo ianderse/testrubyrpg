@@ -1,6 +1,8 @@
 require './creature'
 
 class Player < Creature
+	attr_accessor :h_potion, :m_potion
+
 	def initialize(name, race, job)
 		@name = name
 		@race = race
@@ -18,10 +20,15 @@ class Player < Creature
 		@magdam = int * 1.5
 		@dexdam = dex * 1.5
 		@hp = @str * 5
+		@maxhp = @hp
 		@mp = @int * 5
+		@maxmp = @mp
 		@exp = 0
 		@exp_needed = 50
 		@gold = 100
+
+		@h_potion = 1
+		@m_potion = 1
 
 		welcome
 
@@ -44,9 +51,17 @@ class Player < Creature
 
 	def level_up_check
 		if @exp >= @exp_needed
+			puts "LEVEL UP"
 			@level = @level + 1
 			@exp = 0
 			@exp_needed = (50 * level)
+			@maxhp = @maxhp * (0.75 * level)
+			@hp = @maxhp
+			@maxmp = @maxmp * (0.75 * level)
+			@mp = @maxmp
+			@int = @int + (1.25 * level)
+			@dex = @dex + (1.25 * level)
+			@str = @str + (1.25 * level)
 		end
 	end
 

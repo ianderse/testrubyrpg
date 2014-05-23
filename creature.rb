@@ -1,5 +1,5 @@
 class Creature
-	attr_accessor :name, :race, :job, :hp, :mp, :int, :str, :dex, :level, :exp
+	attr_accessor :name, :race, :job, :hp, :maxhp, :mp, :maxmp, :int, :str, :dex, :level, :exp
 	attr_accessor :attack, :defense, :magdam, :dexdam, :gold
 
 	def die!
