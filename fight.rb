@@ -3,7 +3,7 @@ require './weapon'
 require './armor'
 
 def end_of_fight
-	#level up check, exp gain, loot gain, return to menu
+	#todo: loot gain
 	if $pc.dead?
 		puts $pc.name + " is dead!!"
 		puts "Game Over"
@@ -13,6 +13,7 @@ def end_of_fight
 		$pc.exp = $pc.exp + @mob.exp
 		$pc.level_up_check
 		$pc.gold = $pc.gold + @mob.gold
+		#randomize this to be item, armor, or weapon and ranodm chance to gain anything
 		weap = Weapon.new(5, 5, 1, "Sword")
 		$pc.eq << weap
 		main_menu

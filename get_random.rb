@@ -5,6 +5,6 @@ module Get_random
 	end
 
 	def self.get_name(filename)
-		File.read(File.expand_path("../#{filename}.txt", __FILE__)).split("\n").sample
+		File.read(File.expand_path("../data/#{filename}.txt", __FILE__)).split("\n").sample
 	end
 end
