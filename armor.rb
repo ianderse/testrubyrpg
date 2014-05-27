@@ -11,6 +11,3 @@ class Armor
 	end
 
 end
-
-arm = Armor.new(5, 5, 1)
-puts arm.name

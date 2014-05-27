@@ -13,3 +13,9 @@ Cold
 Evocation
 the Fortuitous
 Acid
+Deflection
+Witchery
+Seduction
+Hatred
+Draining
+Electrocution

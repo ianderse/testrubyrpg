@@ -1,5 +1,5 @@
 def inventory
-	puts "(1)Healing Potion, (2)Mana Potion (3)Exit"
+	puts "(1)Healing Potion, (2)Mana Potion (3)Check Equipment, (4)Exit"
 	choice = gets.chomp.to_i
 
 	if choice == 1
@@ -24,6 +24,11 @@ def inventory
 			puts "No mana potion!"
 			inventory
 		end
+	elsif choice == 3
+		$pc.eq.each do |x|
+			puts x.name
+		end
+		inventory
 	else
 		main_menu
 	end

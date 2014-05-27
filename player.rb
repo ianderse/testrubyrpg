@@ -1,7 +1,7 @@
 require './creature'
 
 class Player < Creature
-	attr_accessor :h_potion, :m_potion
+	attr_accessor :h_potion, :m_potion, :eq
 
 	def initialize(name, race, job)
 		@name = name
@@ -29,6 +29,8 @@ class Player < Creature
 
 		@h_potion = 1
 		@m_potion = 1
+
+		@eq = []
 
 		welcome
 
